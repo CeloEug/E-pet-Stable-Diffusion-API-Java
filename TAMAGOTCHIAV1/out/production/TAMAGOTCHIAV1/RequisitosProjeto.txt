@@ -1,0 +1,41 @@
+Programa para cuidar de um bichinho virtual do estilo tamagotchi que tem a aparência que você descrever no primeiro prompt.
+
+BichinhoVitual.java
+    BichinhoVirtual(): construtor do bichinho virtual. Há uma instância do bichinho chamada "player".
+    alimentarBichinho(): método que quando chamado (objeto botão), subtrai o getFome por Getcaloria. getCaloria
+    é um parametro da classe que representa algum alimento qualquer. O sysout está sendo usado apenas como debug
+    brincarBichinho(): qnd chamado (tbm pelo objeto botao) atualiza 3 status: felicidade, energia e e sujeira. tbm os
+    imprime pra debugging
+    banharBichinho(): zera o status sujeira.
+    contador(): até que o valor 10 seja maior ou igual ao contador, ele executurá o loop. Se a variável contador for
+    maior que que o status (que é o parametro que a classe pede), concatenará à string resultado iniciada vazia com "o",
+    caso contrário adicionará "x" (como o loop só roda até 10, não tem problema adicionar "x" e "o" infinitamente, pq o
+    programa sempre está recalculando o resultado.
+    pintarTela(): devolve o contador com os gets de atributos como parametro concatenados.
+
+Interface.java
+    botaoInteracao(): funciona como super do Jbutton e passa 2 parametros, um do objeto Jbutton (texto), que mostra uma
+    string no botao, e outra exclusiva da super, que atualiza o label (instancia do construtor Label q vem integrado)
+    de acordo com a instancia "player" (do construtor bichinho) que chama o metodo "pintartela()". o .addActionListener
+    serve para executar um método como paramêtro. acao.run passa esse parametro.
+    setTitle(): muda o título do programa (como aparece na barra de ações, ao lado direito do minimizar, expandir e fechar).
+    setDefaultCloseOperation(): para interromper o funcionamento do programa quando clicar no "x".
+    setSize(): definir o tamanho da tela.
+    add(): mostrar na tela determinado elemento do JFrame.
+    setLayout() com FlowLayout() dentro: dispôe o layout do java
+
+Menu.java
+     setVisible(): recebe true ou false e dita se aquela instancia do JFrame será ou não visível no momento.
+     isEmpty(): checa se a variavel/instancia que recebe o metodo retorna "".
+     sendRequest(): puxa a requisição da api https://stablediffusionapi.com.
+     printStackTrace(): método que imprime o problema que deu na requisicao (o proprio server da api manda o erro que deu)
+
+EndGame.java
+    EndGame() recebe a instancia player do tipo BichinhoVirtual pq precisa da instancia ja inicializada do outro painel (interface).
+
+TESTE.java
+    main(): inicia o programa instanciando o Menu e o deixando visível.
+
+CLASSES QUE IMPLEMENTARAM HERANÇA E POLIMORFISMO:
+BichinhoVirtual().
+botaoInteracao() q extendeu o botao padrao do swing.
